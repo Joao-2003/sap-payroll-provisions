@@ -1,0 +1,6 @@
+*.xlsx
+*.XLSX
+!de_para_CC_exemplo.xlsx
+__pycache__/
+venv/
+.streamlit/secrets.toml
