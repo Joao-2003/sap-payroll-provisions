@@ -2,6 +2,8 @@
 
 [🇧🇷 Português](README.md) | 🇺🇸 English
 
+**▶️ [Open the live demo](https://joao-2003.github.io/sap-payroll-provisions/)**: the app running in the browser (Pyodide + stlite) with a fictitious report, cost-center mapping and template. The first load takes 20 to 60 seconds. The interface is in Portuguese.
+
 A Streamlit app that converts the monthly payroll provision report (vacation and 13th salary, with INSS and FGTS social charges) into the SAP S/4HANA **mass journal entry** upload template.
 
 > I built it for a Brazilian manufacturer, where the Accounting team uses it. The cost center mapping in this repository is fictitious.
@@ -13,6 +15,8 @@ A Streamlit app that converts the monthly payroll provision report (vacation and
 3. For each cost center, the provision, INSS and FGTS amounts become debit (expense) and credit (liability) pairs; negative amounts flip the sign, reversing provisions.
 4. The official SAP template is filled in (header with company code, document type SA, dates and reference `PROV FF mm/yyyy` or `PROV 13 mm/yyyy`) and returned for download.
 
+![App](docs/provisoes.png)
+
 ## How to run
 
 ```bash
@@ -22,6 +26,8 @@ cp de_para_CC_exemplo.xlsx de_para_CC.xlsx          # replace with your cost cen
 # and save it as "JournalEntry_Template (1).XLSX" in this folder
 streamlit run main.py
 ```
+
+Without `de_para_CC.xlsx` and the template in the folder (or in the browser), the app runs in demo mode with the files in `demo/`, built by `tools/gerar_exemplos.py`. After generating the file, the screen lists the line items and checks that debits and credits balance.
 
 ## Tech stack
 

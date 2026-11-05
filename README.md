@@ -2,6 +2,8 @@
 
 🇧🇷 Português | [🇺🇸 English](README.en.md)
 
+**▶️ [Abrir a demonstração](https://joao-2003.github.io/sap-payroll-provisions/)**: o app rodando no navegador (Pyodide + stlite) com relatório, de-para e template fictícios. A primeira carga leva de 20 a 60 segundos.
+
 Aplicação Streamlit que converte o relatório mensal de provisões da folha (férias e 13º, com INSS e FGTS) no template de **lançamento contábil em massa** do SAP S/4HANA, pronto para upload.
 
 > Desenvolvida por mim para uma indústria brasileira e usada pela Contabilidade. O de-para de centros de custo deste repositório é fictício.
@@ -13,6 +15,8 @@ Aplicação Streamlit que converte o relatório mensal de provisões da folha (f
 3. Para cada centro de custo, os valores de provisão, INSS e FGTS viram pares de débito (despesa) e crédito (passivo); valores negativos invertem a natureza, estornando provisões.
 4. O template oficial do SAP é preenchido (cabeçalho com empresa, tipo de documento SA, datas e referência `PROV FF mm/aaaa` ou `PROV 13 mm/aaaa`) e o arquivo é devolvido para download.
 
+![App](docs/provisoes.png)
+
 ## Como executar
 
 ```bash
@@ -22,6 +26,8 @@ cp de_para_CC_exemplo.xlsx de_para_CC.xlsx          # troque pelos seus centros 
 # e salve como "JournalEntry_Template (1).XLSX" nesta pasta
 streamlit run main.py
 ```
+
+Sem `de_para_CC.xlsx` e o template na pasta (ou no navegador), o app abre no modo demonstração com os arquivos de `demo/`, gerados por `tools/gerar_exemplos.py`. Depois de gerar o arquivo, a tela mostra as partidas e confere que débitos e créditos fecham.
 
 ## Tecnologias
 
